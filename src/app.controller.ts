@@ -1,20 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
+import { articles } from './articles';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-}
-
-@Controller()
-export class UsersController {
-  @Get()
-  getAllUsers(): string[] {
-    return ['h', 'e', 'l', 'l', 'o'];
+  @Render('index')
+  index() {
+    return { articles }
   }
 }
