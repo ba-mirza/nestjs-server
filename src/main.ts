@@ -10,6 +10,7 @@ async function bootstrap() {
 
   app.setViewEngine('pug');
   await app.listen(3000);
+  console.log(Error);
 }
 
 bootstrap();
